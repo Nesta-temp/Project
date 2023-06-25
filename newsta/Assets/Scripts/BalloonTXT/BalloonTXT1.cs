@@ -6,33 +6,34 @@ using TMPro;
 using UnityEngine.UI;
 
 
-public class BalloonTXT : MonoBehaviour
+public class BalloonTXT1 : MonoBehaviour
 {
     [SerializeField]
     private TMP_Text textComponent;
-    
-    private Color originalColor;
+
+    private Color originalColor = Color.black;
+    private Color hoverColor = Color.green;
 
     public string[] sentences = { "Sky is Black", "Sky is Blue", "Weather is cold", "Weather is good" };
     private bool isShowingSentence = false;
+    private bool isTextActive = true;
+    public string clickSentence;
 
     void Start()
     {
         // 텍스트 컴포넌트 가져오기
         textComponent = GetComponent<TMP_Text>();
 
-        // 원본 색상 저장
-        originalColor = Color.black;
-
         // 초기에는 문장을 숨김
         HideSentence();
 
         // 랜덤한 문장 출력
-        InvokeRepeating("DisplayRandomSentence", 5f, 10f); // "DisplayRandomSentence"메서드 실행, 60f : 첫 번째 호출 이전의 시간 지연 (초 단위), 60f : 쿨타임
+        InvokeRepeating("DisplayRandomSentence", 5f, 10f);
     }
+
     private void DisplayRandomSentence()
     {
-        if (!isShowingSentence)
+        if (!isShowingSentence && isTextActive)
         {
             // 랜덤 문장 선택
             int index = Random.Range(0, sentences.Length);
@@ -40,6 +41,7 @@ public class BalloonTXT : MonoBehaviour
 
             // 문장 표시
             textComponent.text = sentence;
+            textComponent.color = originalColor; // 텍스트 색상을 원래 색상으로 설정
             textComponent.gameObject.SetActive(true);
 
             isShowingSentence = true;
@@ -48,18 +50,29 @@ public class BalloonTXT : MonoBehaviour
             Invoke("HideSentence", 5f);
         }
     }
+
     private void HideSentence()
     {
         textComponent.gameObject.SetActive(false);
         isShowingSentence = false;
 
-        // 정해진 시간동안 다시 문장 표시
-        Invoke("DisplayRandomSentence", 5f);
+        // 10초 후에 다시 텍스트 표시
+        Invoke("ShowSentence", 10f);
     }
+
+    private void ShowSentence()
+    {
+        textComponent.gameObject.SetActive(true);
+        isTextActive = true;
+
+        // 5초 후에 문장 숨기기
+        Invoke("HideSentence", 5f);
+    }
+
     public void OnPointerEnter()
     {
         // 호버 효과: 텍스트 색상을 초록색으로 변경
-        textComponent.color = Color.green;
+        textComponent.color = hoverColor;
     }
 
     public void OnPointerExit()
@@ -71,6 +84,10 @@ public class BalloonTXT : MonoBehaviour
     public void OnPointerClick()
     {
         // 클릭 효과: 텍스트 숨기기
-        HideSentence(); 
+        isTextActive = false;
+        HideSentence();
+
+        // 클릭한 문장을 clickSentence에 저장
+        clickSentence = textComponent.text;
     }
 }

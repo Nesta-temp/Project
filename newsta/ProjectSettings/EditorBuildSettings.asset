@@ -5,7 +5,37 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Main.unity
+    guid: 849a11dc6c41a99418dfdf089040b5f3
+  - enabled: 1
+    path: Assets/Scenes/Collection.unity
+    guid: 5bf64ba0d775c6140a7948ba843da27c
+  - enabled: 1
+    path: Assets/Scenes/Keyword.unity
+    guid: ea920773079bfa741ac38faa6d7ca38d
+  - enabled: 1
+    path: Assets/Scenes/Companyinfo.unity
+    guid: a9a1bdb417a8b52448af1260a09e3cea
+  - enabled: 1
+    path: Assets/Scenes/Departctrl.unity
+    guid: bc5b1fcb79eea2c4a9c0c6a474488591
+  - enabled: 1
+    path: Assets/Scenes/Hiring.unity
+    guid: 793f7996649b27742a3dfa78258906ea
+  - enabled: 1
+    path: Assets/Scenes/Lobby.unity
+    guid: e84e21044b73d6d44a84844562411b58
+  - enabled: 1
+    path: Assets/Scenes/Marketing.unity
+    guid: 7ca7b818c2ef76f41b5e8ac2d4178cbd
+  - enabled: 1
+    path: Assets/Scenes/Publishing.unity
+    guid: b34501cd2d884fe4db7fb6d5b70f8cd3
+  - enabled: 1
+    path: Assets/Scenes/Setting.unity
+    guid: 8e475db5c51542c4ea0f9dd5afe51a26
   m_configObjects: {}
