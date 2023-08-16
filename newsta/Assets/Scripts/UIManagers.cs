@@ -57,6 +57,10 @@ public class UIManagers : MonoBehaviour
     {
         SceneManager.LoadScene("Lobby");
     }
+    public void GoLibrary()
+    {
+        SceneManager.LoadScene("Library");
+    }
 }
 
 

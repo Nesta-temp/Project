@@ -5,8 +5,8 @@ using UnityEngine.UI;
 using TMPro;
 
 public class Memo : MonoBehaviour
-{
-    public BalloonTXT1 balloonScript; // BalloonTXT1 스크립트를 가진 게임 오브젝트에 연결해야 합니다.
+{/*
+    //public BalloonTXT1 balloonScript; // BalloonTXT1 스크립트를 가진 게임 오브젝트에 연결해야 합니다.
 
     public List<string> keywords = new List<string> { "Blue", "Black", "Sky", "good", "Weather", "cold" };
     private Dictionary<string, int> keywordCount = new Dictionary<string, int>();
@@ -23,7 +23,7 @@ public class Memo : MonoBehaviour
     void Update()
     {
         // 클릭한 문장 받아오기
-        string clickSentence = balloonScript.clickSentence;
+        //string clickSentence = balloonScript.clickSentence;
 
         // 단어 리스트 초기화
         List<string> words = new List<string>();
@@ -58,6 +58,7 @@ public class Memo : MonoBehaviour
             // 필요한 경우 화면에 표시하는 방법에 맞게 수정하면 됩니다.
         }
     }
+    */
 }
 
 
